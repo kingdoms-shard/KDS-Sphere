@@ -20,5 +20,5 @@ script:
 after_success:
   - mkdir accounts logs save scripts
   - mv spheresvr spheresvr-arm
-  - tar -czvf SphereSvr-Arm32.tar.gz accounts/ logs/ save/ scripts/ spheresvr -C src/ sphere.ini sphereCrypt.ini
+  - tar -czvf SphereSvr-Arm32.tar.gz accounts/ logs/ save/ scripts/ spheresvr-arm -C src/ sphere.ini sphereCrypt.ini
   - curl -T SphereSvr-Arm32.tar.gz -u $FTP_USER:$FTP_PASSWORD $FTP_SERVER
