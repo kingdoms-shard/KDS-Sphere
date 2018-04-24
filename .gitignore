@@ -1,2 +1,6 @@
 # Ignore git versioning file
 /src/common/version/GitRevision.h
+
+# Idea
+.idea
+cmake-build-debug

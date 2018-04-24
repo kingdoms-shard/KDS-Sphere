@@ -12,13 +12,9 @@ git:
   depth: false
 notifications:
   email: false
-before_script:
-  - sudo apt-get --yes --no-install-recommends install binfmt-support qemu-user-static
-  - echo ':arm:M::\x7fELF\x01\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x02\x00\x28\x00:\xff\xff\xff\xff\xff\xff\xff\x00\xff\xff\xff\xff\xff\xff\xff\xff\xfe\xff\xff\xff:/usr/bin/qemu-arm-static:' | sudo tee -a /proc/sys/fs/binfmt_misc/register  
 script:
   - make NIGHTLY=1 -f makefile
 after_success:
   - mkdir accounts logs save scripts
-  - mv spheresvr spheresvr-arm
-  - tar -czvf SphereSvr-Arm32.tar.gz accounts/ logs/ save/ scripts/ spheresvr-arm -C src/ sphere.ini sphereCrypt.ini
-  - curl -T SphereSvr-Arm32.tar.gz -u $FTP_USER:$FTP_PASSWORD $FTP_SERVER
+  - tar -czvf SphereSvr.tar.gz accounts/ logs/ save/ scripts/ spheresvr -C src/ sphere.ini sphereCrypt.ini
+  - curl -T SphereSvr.tar.gz -u $FTP_USER:$FTP_PASSWORD $FTP_SERVER
