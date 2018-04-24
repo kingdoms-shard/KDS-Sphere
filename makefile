@@ -1,5 +1,5 @@
 # Generic makefile
-MARCH	= -march=armv8-a -m32
+MARCH	= -march=i686 -m32
 
 OPT 	= -Os -fno-strict-aliasing -fno-omit-frame-pointer -ffast-math $(MARCH)
 COPT	= -Os -fno-strict-aliasing -fno-omit-frame-pointer -ffast-math $(MARCH)

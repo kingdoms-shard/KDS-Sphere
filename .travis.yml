@@ -1,7 +1,4 @@
 language: cpp
-env:
-  - ARCH=x64
-  - ARCH=arm
 compiler: gcc
 addons:
   apt:
@@ -16,7 +13,7 @@ git:
 notifications:
   email: false
 script:
-  - bash -ex .travis-ci.sh
+  - make NIGHTLY=1 -f makefile
 after_success:
   - mkdir accounts logs save scripts
   - mv spheresvr spheresvr-arm
