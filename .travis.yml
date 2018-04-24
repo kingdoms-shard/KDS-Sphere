@@ -16,7 +16,7 @@ git:
 notifications:
   email: false
 script:
-  - make NIGHTLY=1 -f makefile
+  - bash -ex .travis-ci.sh
 after_success:
   - mkdir accounts logs save scripts
   - mv spheresvr spheresvr-arm
